@@ -5,46 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Granular Access</title>
 </head>
+    <style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  .container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  h2, h3 {
+    color: #0275d8;
+  }
+  .code {
+    background-color: #eee;
+    border-left: 3px solid #0275d8;
+    padding: 10px;
+    font-family: monospace;
+    margin: 10px 0;
+    overflow-x: auto;
+  }
+  .task {
+    background-color: #dff0d8;
+    border-left: 3px solid #3c763d;
+    padding: 10px;
+    margin: 10px 0;
+  }
+</style>
 <body>
-    
-Brugere:
- 
-USERNAME: AdminUser PASSWORD: Password123!
-USERNAME: WriteUser PASSWORD: Password123!
-USERNAME: ReadUser PASSWORD: Password123!
- 
-(USING SQLCMD)
-Open CMD using "kør som administrator"
-choco install sqlcmd
- 
-add: "C:\Program Files\SqlCmd\" to the Path system enviromental environment
- 
-Open CMD og kør denne kommando med de forskellige brugere og se hvad de har tilladelse til
-sqlcmd -S system-integration.database.windows.net -d granular_access -U USERNAME -P PASSWORD
- 
-SELECT QUERY
-SELECT * FROM Items
- 
-INSERT QUERY
-INSERT INTO Items (Name, Quantity) VALUES ('navn', 'antal');
- 
-GO SETUP:
-Write "go" after every query
- 
-Database setup
- 
-Database:
-granular_access
- 
-Table:
-Items
- 
-Items:
-data_id = PK/int
-Name = varchar
-Quantity = int
- 
-TASK:
-5 items ialt som jeg gerne vil have navn og antal på i første omgang, og så skal der laves et nyt Item entry, med et givet navn og antal
+
+<div class="container">
+  <h2>User Credentials</h2>
+  <p>USERNAME: AdminUser PASSWORD: Password123!</p>
+  <p>USERNAME: WriteUser PASSWORD: Password123!</p>
+  <p>USERNAME: ReadUser PASSWORD: Password123!</p>
+
+  <h2>Setting Up SQLCMD</h2>
+  <h3>Installation</h3>
+  <div class="code">
+    Open CMD using "kør som administrator"<br>
+    choco install sqlcmd<br>
+    add: "C:\Program Files\SqlCmd\" to the Path system environmental environment
+  </div>
+
+  <h3>Running SQLCMD</h3>
+  <p>Open CMD and execute the following command with the different users to see their permissions:</p>
+  <div class="code">
+    sqlcmd -S system-integration.database.windows.net -d granular_access -U USERNAME -P PASSWORD
+  </div>
+
+  <h2>SQL Queries</h2>
+  <h3>SELECT QUERY</h3>
+  <div class="code">SELECT * FROM Items</div>
+  
+  <h3>INSERT QUERY</h3>
+  <div class="code">INSERT INTO Items (Name, Quantity) VALUES ('navn', 'antal');</div>
+  
+  <p>GO SETUP:</p>
+  <div class="code">Write "go" after every query</div>
+
+  <h2>Database Setup</h2>
+  <p>Database: granular_access</p>
+  <p>Table: Items</p>
+  <p>Items: data_id = PK/int, Name = varchar, Quantity = int</p>
+
+  <div class="task">
+    <h3>TASK</h3>
+    <p>5 items in total that I would like to have name and quantity on at first, and then a new Item entry is to be created, with a given name and quantity.</p>
+  </div>
+</div>
+
 </body>
 </html>
