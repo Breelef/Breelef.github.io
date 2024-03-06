@@ -3,39 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy KultuNaut</title>
+    <title>Granular Access</title>
 </head>
 <body>
     
-Privacy Policy for KultuNaut
-
-Effective Date: 18/06/2023
-
-This Privacy Policy describes how KultuNaut manages your information when you use the application.
-
-1. Information We Collect
-
-We collect minimal information in the following way:
-
-1.1 Local Storage: KultuNaut stores certain identifiers in the local storage of your device. This information is only used by KultuNaut to function properly and is not shared with any third parties.
-
-2. How We Use Your Information
-
-We use the information stored in your local storage to:
-
-2.1 Ensure KultuNaut functions as intended.
-2.2 Provide a consistent user experience across your devices.
-
-3. Security
-
-We value your trust in providing us your information, thus we are striving to use commercially acceptable means of protecting it. However, remember that no method of transmission over the internet, or method of electronic storage is 100% secure and reliable, and we cannot guarantee its absolute security.
-
-4. Changes to This Privacy Policy
-
-We may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page. These changes are effective immediately after they are posted on this page.
-
-5. Contact Us
-
-If you have any questions about this Privacy Policy, please contact us at breelef@protonmail.com.
+Brugere:
+ 
+USERNAME: slave PASSWORD: Lars123!
+USERNAME: bruger PASSWORD: Lars123!
+USERNAME: admin PASSWORD: Lars123!
+ 
+(USING SQLCMD)
+Open CMD using "kør som administrator"
+choco install sqlcmd
+ 
+add: "C:\Program Files\SqlCmd\" to the Path system enviromental environment
+ 
+Open CMD og kør denne kommando med de forskellige brugere og se hvad de har tilladelse til
+sqlcmd -S sitestserver.database.windows.net -d SItest -U USERNAME -P PASSWORD
+ 
+SELECT QUERY
+SELECT * FROM people
+ 
+INSERT QUERY
+INSERT INTO people (name) VALUES ('navn');
+ 
+GO SETUP:
+Write "go" after every query
+ 
+Database setup
+ 
+Database:
+SItest
+ 
+Table:
+people
+ 
+people:
+data_id = PK/int
+name = varchar
+ 
+TASK:
+5 mennesker ialt som jeg gerne vil have navnene på i første omgang, og så skal der laves en ny "people" entry, med navnet "Jacob" og et tilhørende autoincrimentet data_id
 </body>
 </html>
